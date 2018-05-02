@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SXSSFWriteDemo {
+public class SXSSFWriteDemoOne {
 
     public static void main(String[] args) throws IOException {
 
@@ -17,7 +17,7 @@ public class SXSSFWriteDemo {
         data.add(new String[]{"1001", "小白", "女", "计算机科学与技术"});
         data.add(new String[]{"1002", "小黑", "男", "软件工程"});
 
-        // 设置放在内存中的行数
+        // 自动转移设置放在内存中的行数
         SXSSFWorkbook swb = new SXSSFWorkbook(1000);
         // 创建sheet
         SXSSFSheet sheet = swb.createSheet("Demo");

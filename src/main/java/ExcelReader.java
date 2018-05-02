@@ -28,19 +28,20 @@ public class ExcelReader {
         SST_INDEX, NUMBER, INLINE_STR
     }
 
-    private OPCPackage opcPackage;
+    // Excel路径
+    private String path;
     // 列总数
     private int columns;
 
-    private ExcelReader(OPCPackage opcPackage, int columns) {
-
-        this.opcPackage = opcPackage;
+    private ExcelReader(String path, int columns) {
+        this.path = path;
         this.columns = columns;
     }
 
     // Excel处理
     private List<String[]> process() throws IOException, SAXException, OpenXML4JException, ParserConfigurationException {
 
+        OPCPackage opcPackage = OPCPackage.open(path, PackageAccess.READ);
         ReadOnlySharedStringsTable stringsTable = new ReadOnlySharedStringsTable(opcPackage);
         XSSFReader xssfReader = new XSSFReader(opcPackage);
         List<String[]> list = new ArrayList<>();
@@ -52,6 +53,7 @@ public class ExcelReader {
             list.addAll(processSheet(stringsTable, stream));
             stream.close();
         }
+        opcPackage.close();
         return list;
     }
 
@@ -73,11 +75,8 @@ public class ExcelReader {
     // 读取Excel入口方法
     public static List<String[]> readExcel(String path, int columns) throws OpenXML4JException, IOException, ParserConfigurationException, SAXException {
 
-        OPCPackage opc = OPCPackage.open(path, PackageAccess.READ);
-        ExcelReader excelReader = new ExcelReader(opc, columns);
-        List<String[]> list = excelReader.process();
-        opc.close();
-        return list;
+        ExcelReader excelReader = new ExcelReader(path, columns);
+        return excelReader.process();
     }
 
     private class SheetHandler extends DefaultHandler {
@@ -174,7 +173,7 @@ public class ExcelReader {
             }
         }
 
-        public List<String[]> getRows() {
+        private List<String[]> getRows() {
             return rows;
         }
 
