@@ -12,7 +12,7 @@ POI 读写Excel 示例
 |UserModelSSWriteDemo|用户模式（usermodel） SS 写 Excel Demo|
 |SXSSFWriteDemoOne|SXSSF 写 Excel Demo One|
 |SXSSFWriteDemoTwo|SXSSF 写 Excel Demo Two|
-|ExcelReader|事件模式读Excel（.xlsx）类|
+|ExcelReader|事件模式（eventmodel）读Excel（.xlsx）类|
 |EventModelXSSFReadDemo|事件模式（eventmodel） 读 Excel Demo|
 
 * 示例仅仅是方便更好的理解，忽略了很多细节，也不支持所有的情况。

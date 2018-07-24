@@ -24,7 +24,7 @@ public class SXSSFWriteDemoTwo {
 
         for (int i = 0; i < data.size(); i++) {
 
-            if (0 == i % 1000) {
+            if (0 != i && 0 == i % 1000) {
                 // 手动转移（内存向硬盘）
                 sheet.flushRows(1000);
             }
