@@ -21,7 +21,7 @@ POI 读写Excel 示例
 
 ### 详情
 
-[详情请点击](https://my.oschina.net/u/3320720/blog/2870475)
+[详情请点击](https://cunyu.github.io/Java%E5%B7%A5%E5%85%B7%E5%8C%85/POI-%E8%AF%BB%E5%86%99Excel-%E7%AE%80%E4%BB%8B.html)
 
 ### 开源协议
 
